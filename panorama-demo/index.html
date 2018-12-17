@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Nieuwe Panorama-API</title>
+    <meta name="author" content="Bert Spaan">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/theme.css" id="theme">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section data-background="../assets/sequences.png">
+          <h2>Panorama-API: Nieuwe Versie</h2>
+        </section>
+
+        <section>
+          <span class="caption">
+            Eisen nieuwe API
+          </span>
+          <ul style="margin-bottom: 1em;">
+            <li>selectie op missietype (WOZ, BI) en jaar;</li>
+            <li>terwijl het kaartbeeld er netjes uit blijft zien.</li>
+          </ul>
+          <img src="../assets/panorama-wms.png" />
+        </section>
+
+        <section>
+            <pre><code data-trim data-noescape class="language-sql">CREATE MATERIALIZED VIEW panoramas_recent_all AS
+  SELECT * FROM panoramas_panorama pano
+    WHERE
+      NOT EXISTS (
+        SELECT *
+        FROM public.panoramas_panorama newer
+        WHERE
+          pano.id != newer.id AND
+          pano.surface_type = newer.surface_type AND
+          ST_DWithin(newer._geolocation_2d_rd, pano._geolocation_2d_rd, 4.3)
+      )
+</code></pre>
+          <span class="caption">
+            Oude API: Materialized Views
+          </span>
+        </section>
+
+        <section>
+          <img src="../assets/panorama-rest-api-nu.png" />
+          <span class="caption">
+            Oude API: voor elke materialized view één endpoint
+          </span>
+        </section>
+
+        <section>
+          <span class="caption">
+            Nadelen materialized views
+          </span>
+          <ul style="margin-bottom: 1em;">
+            <li>Niet flexibel;</li>
+            <li>elk jaar komt ’r een jaar bij;</li>
+            <li>missietypes, nog meer materialized views 😩;</li>
+            <li>duurt lang om te maken — <em>O(n²)</em></li>
+          </ul>
+        </section>
+
+        <section>
+            <img src="../assets/panorama-rest-api-straks.png" />
+          <span class="caption">
+            Nieuwe API: twee endpoints
+          </span>
+        </section>
+
+        <section>
+          <span class="caption">
+            Observable: interactief notebook, rapid prototyping met data
+          </span>
+          <div>
+            <a href="https://beta.observablehq.com/@bertspaan/amsterdam-panorama-api"><img src="../assets/panorama-observable.png" /></a>
+        </section>
+
+        <section>
+          <pre><code data-trim data-noescape class="language-sql">SELECT * FROM panoramas_panorama pano
+WHERE
+  NOT EXISTS (
+    SELECT *
+    FROM public.panoramas_panorama newer
+    WHERE
+      pano.id != newer.id AND
+      pano.surface_type = newer.surface_type AND
+      ST_DWithin(newer._geolocation_2d_rd, pano._geolocation_2d_rd,
+        pano.mission_distance - 0.7) AND
+      ST_DWithin(pano._geolocation_2d_rd, ${point}, ${radius}) AND
+      newer.mission_type = ${mission_type}
+  ) AND
+  ST_DWithin(pano._geolocation_2d_rd, ${point}, ${radius} AND
+  mission_type = ${mission_type}
+ORDER BY pano._geolocation_2d_rd <-> ${point};
+</code></pre>
+          <span class="caption">
+            SQL voor nieuw endpoint: snel door index
+          </span>
+        </section>
+
+        <section>
+          <ul>
+            <li>Alle query’s met nieuwe filters snel, meestal rond 10ms;</li>
+            <li>alleen WMS-query’s met grote oppervlakte (m<sup>2</sup>) langzamer dan voorheen;</li>
+            <li>nog doen: cachen met MapProxy!</li>
+          </ul>
+          <span class="caption">
+            Nieuwe API: performance
+          </span>
+        </section>
+
+        <section>
+          <div>Ideeën voor de toekomst!</div>
+        </section>
+
+        <section>
+          <img src="../assets/panorama-architecture-01.svg" />
+          <span class="caption">
+            Huidige situatie: één project op GitHub
+          </span>
+        </section>
+
+        <section>
+          <img src="../assets/panorama-architecture-02.svg" />
+          <span class="caption">
+            Mogelijke verbetering
+          </span>
+        </section>
+
+        <section>
+          <img src="../assets/panorama-datacatalogus-nu.png" />
+          <span class="caption">
+            Huidige situatie: alleen webservices in datacatalogus
+          </span>
+        </section>
+
+        <section>
+          <img src="../assets/panorama-datacatalogus-straks.png" />
+          <span class="caption">
+              Mogelijke verbetering: ook data! CSV! GeoJSON! NDJSON!
+          </span>
+        </section>
+
+        <section>
+          <pre style="font-size: 0.3em;"><code data-trim data-noescape class="language-javascript">{"id":"TMX7315120208-000020_pano_0000_000000","type":"panorama","data":{"missionId":"TMX7315120208-000020","timestamp":"2016-03-17T10:45:10.425Z","filename":"pano_0000_000000.jpg","path":"2016/03/17/TMX7315120208-000020/","distance":5,"tags":["bi","land",2016]},"geometry":{"type":"Point","coordinates":[4.9891699395161,52.2997361180023]}}
+{"id":"TMX7315120208-000020_pano_0000_000001","type":"panorama","data":{"missionId":"TMX7315120208-000020","timestamp":"2016-03-17T10:45:10.775Z","filename":"pano_0000_000001.jpg","path":"2016/03/17/TMX7315120208-000020/","distance":5,"tags":["bi","land",2016]},"geometry":{"type":"Point","coordinates":[4.98917103467779,52.2996911002726]}}
+{"id":"TMX7315120208-000020_pano_0000_000002","type":"panorama","data":{"missionId":"TMX7315120208-000020","timestamp":"2016-03-17T10:45:11.125Z","filename":"pano_0000_000002.jpg","path":"2016/03/17/TMX7315120208-000020/","distance":5,"tags":["bi","land",2016]},"geometry":{"type":"Point","coordinates":[4.98917132055538,52.2996461978532]}}
+{"id":"TMX7315120208-000020_pano_0000_000003","type":"panorama","data":{"missionId":"TMX7315120208-000020","timestamp":"2016-03-17T10:45:11.475Z","filename":"pano_0000_000003.jpg","path":"2016/03/17/TMX7315120208-000020/","distance":5,"tags":["bi","land",2016]},"geometry":{"type":"Point","coordinates":[4.98917161794814,52.2996013466301]}}
+{"id":"TMX7315120208-000020_pano_0000_000004","type":"panorama","data":{"missionId":"TMX7315120208-000020","timestamp":"2016-03-17T10:45:11.825Z","filename":"pano_0000_000004.jpg","path":"2016/03/17/TMX7315120208-000020/","distance":5,"tags":["bi","land",2016]},"geometry":{"type":"Point","coordinates":[4.98917198416563,52.2995564668852]}}
+{"id":"TMX7315120208-000020_pano_0000_000005","type":"panorama","data":{"missionId":"TMX7315120208-000020","timestamp":"2016-03-17T10:45:12.175Z","filename":"pano_0000_000005.jpg","path":"2016/03/17/TMX7315120208-000020/","distance":5,"tags":["bi","land",2016]},"geometry":{"type":"Point","coordinates":[4.98917264340207,52.2995112554671]}}
+{"id":"TMX7315120208-000020_pano_0000_000006","type":"panorama","data":{"missionId":"TMX7315120208-000020","timestamp":"2016-03-17T10:45:12.520Z","filename":"pano_0000_000006.jpg","path":"2016/03/17/TMX7315120208-000020/","distance":5,"tags":["bi","land",2016]},"geometry":{"type":"Point","coordinates":[4.98917380752767,52.2994662417656]}}
+{"id":"TMX7315120208-000020_pano_0000_000007","type":"panorama","data":{"missionId":"TMX7315120208-000020","timestamp":"2016-03-17T10:45:12.860Z","filename":"pano_0000_000007.jpg","path":"2016/03/17/TMX7315120208-000020/","distance":5,"tags":["bi","land",2016]},"geometry":{"type":"Point","coordinates":[4.98917507183778,52.2994214657905]}}
+{"id":"TMX7315120208-000020_pano_0000_000008","type":"panorama","data":{"missionId":"TMX7315120208-000020","timestamp":"2016-03-17T10:45:13.200Z","filename":"pano_0000_000008.jpg","path":"2016/03/17/TMX7315120208-000020/","distance":5,"tags":["bi","land",2016]},"geometry":{"type":"Point","coordinates":[4.98917596033205,52.2993764601732]}}
+{"id":"TMX7315120208-000020_pano_0000_000009","type":"panorama","data":{"missionId":"TMX7315120208-000020","timestamp":"2016-03-17T10:45:13.540Z","filename":"pano_0000_000009.jpg","path":"2016/03/17/TMX7315120208-000020/","distance":5,"tags":["bi","land",2016]},"geometry":{"type":"Point","coordinates":[4.98917728017018,52.2993311922257]}}
+{"id":"TMX7315120208-000020_pano_0000_000010","type":"panorama","data":{"missionId":"TMX7315120208-000020","timestamp":"2016-03-17T10:45:13.875Z","filename":"pano_0000_000010.jpg","path":"2016/03/17/TMX7315120208-000020/","distance":5,"tags":["bi","land",2016]},"geometry":{"type":"Point","coordinates":[4.98917906257375,52.2992863328773]}}
+{"id":"TMX7315120208-000020_pano_0000_000011","type":"panorama","data":{"missionId":"TMX7315120208-000020","timestamp":"2016-03-17T10:45:14.210Z","filename":"pano_0000_000011.jpg","path":"2016/03/17/TMX7315120208-000020/","distance":5,"tags":["bi","land",2016]},"geometry":{"type":"Point","coordinates":[4.98918100492826,52.2992412864197]}}
+{"id":"TMX7315120208-000020_pano_0000_000012","type":"panorama","data":{"missionId":"TMX7315120208-000020","timestamp":"2016-03-17T10:45:14.545Z","filename":"pano_0000_000012.jpg","path":"2016/03/17/TMX7315120208-000020/","distance":5,"tags":["bi","land",2016]},"geometry":{"type":"Point","coordinates":[4.98918322629773,52.2991959875959]}}
+{"id":"TMX7315120208-000020_pano_0000_000013","type":"panorama","data":{"missionId":"TMX7315120208-000020","timestamp":"2016-03-17T10:45:14.875Z","filename":"pano_0000_000013.jpg","path":"2016/03/17/TMX7315120208-000020/","distance":5,"tags":["bi","land",2016]},"geometry":{"type":"Point","coordinates":[4.98918592777149,52.2991511196596]}}
+{"id":"TMX7315120208-000020_pano_0000_000014","type":"panorama","data":{"missionId":"TMX7315120208-000020","timestamp":"2016-03-17T10:45:15.205Z","filename":"pano_0000_000014.jpg","path":"2016/03/17/TMX7315120208-000020/","distance":5,"tags":["bi","land",2016]},"geometry":{"type":"Point","coordinates":[4.98918838983137,52.2991060689608]}}
+{"id":"TMX7315120208-000020_pano_0000_000015","type":"panorama","data":{"missionId":"TMX7315120208-000020","timestamp":"2016-03-17T10:45:15.535Z","filename":"pano_0000_000015.jpg","path":"2016/03/17/TMX7315120208-000020/","distance":5,"tags":["bi","land",2016]},"geometry":{"type":"Point","coordinates":[4.98919091388833,52.2990611660283]}}
+{"id":"TMX7315120208-000020_pano_0000_000016","type":"panorama","data":{"missionId":"TMX7315120208-000020","timestamp":"2016-03-17T10:45:15.865Z","filename":"pano_0000_000016.jpg","path":"2016/03/17/TMX7315120208-000020/","distance":5,"tags":["bi","land",2016]},"geometry":{"type":"Point","coordinates":[4.98919343958565,52.2990164101466]}}
+{"id":"TMX7315120208-000020_pano_0000_000017","type":"panorama","data":{"missionId":"TMX7315120208-000020","timestamp":"2016-03-17T10:45:16.200Z","filename":"pano_0000_000017.jpg","path":"2016/03/17/TMX7315120208-000020/","distance":5,"tags":["bi","land",2016]},"geometry":{"type":"Point","coordinates":[4.98919580476412,52.2989711815456]}}
+{"id":"TMX7315120208-000020_pano_0000_000018","type":"panorama","data":{"missionId":"TMX7315120208-000020","timestamp":"2016-03-17T10:45:16.535Z","filename":"pano_0000_000018.jpg","path":"2016/03/17/TMX7315120208-000020/","distance":5,"tags":["bi","land",2016]},"geometry":{"type":"Point","coordinates":[4.98919774290782,52.2989261821004]}}
+{"id":"TMX7315120208-000020_pano_0000_000019","type":"panorama","data":{"missionId":"TMX7315120208-000020","timestamp":"2016-03-17T10:45:16.870Z","filename":"pano_0000_000019.jpg","path":"2016/03/17/TMX7315120208-000020/","distance":5,"tags":["bi","land",2016]},"geometry":{"type":"Point","coordinates":[4.98919964984962,52.2988814915736]}}</code></pre>
+          <span class="caption">
+            NDJSON: één JSON-object per regel
+          </span>
+        </section>
+
+        <section>
+          <pre ><code data-trim data-noescape class="language-javascript">{
+  "id": "TMX7315120208-000020_pano_0000_000009",
+  "type": "panorama",
+  "data": {
+    "missionId": "TMX7315120208-000020",
+    "timestamp": "2016-03-17T10:45:13.540Z",
+    "filename": "pano_0000_000009.jpg",
+    "path": "2016/03/17/TMX7315120208-000020/",
+    "distance": 5,
+    "tags": [
+      "bi",
+      "land",
+      2016
+    ]
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      4.9891772,
+      52.299331
+    ]
+  }
+}</code></pre>
+          <span class="caption">
+            NDJSON: één JSON-object per regel
+          </span>
+        </section>
+
+        <section>
+            <pre><code data-trim data-noescape class="language-bash">curl https://api.data.amsterdam.nl/\
+  dcatd/datasets/panorama/panorama.ndjson \
+  | ndjson-filter "new Date(d.timestamp) >= new Date('2018-01-01')" \
+  | datapunt-ndjson-to-geojson | pbcopy
+</code></pre>
+          <span class="caption">
+            NDJSON filteren en converteren via de command line
+          </span>
+        </section>
+
+        <section>
+          <img src="../assets/panorama-geojson-io.png" />
+          <span class="caption">
+            Opnamelocaties op geojson.io
+          </span>
+        </section>
+
+        <section>
+            <pre><code data-trim data-noescape class="language-bash">curl https://api.data.amsterdam.nl/\
+  dcatd/datasets/panorama/panorama.ndjson \
+  | datapunt-ndjson-to-geojson
+  | ogr2ogr -nlt POINT -skipfailures panorama.shp /vsistdin/
+</code></pre>
+          <span class="caption">
+              NDJSON filteren en converteren via de command line
+          </span>
+        </section>
+
+        <section>
+          <img src="../assets/panorama-qgis.png" />
+          <span class="caption">
+            Opnamelocaties in QGIS
+          </span>
+        </section>
+
+        <!-- <section>
+          <pre><code data-trim data-noescape class="language-javascript">const H = require('highland')
+
+H(fs.createReadStream('panoramas.ndjson'))
+  .split()
+  .compact()
+  .map(JSON.parse)
+  .filter((panorama) => new Date(panorama.timestamp) >= new Date('2018-01-01'))
+  .map((panorama) => ({
+    ...panorama,
+    LicensePlates: detectLicensePlates(panorama.filename)
+  }))
+  .map(JSON.stringify)
+  .intersperse('\n')
+  .pipe(fs.createWriteStream('output.ndjson'))
+</code></pre>
+          <span class="caption">
+            Verwerking met Highland, een JavaScript-bibliotheek voor streaming data
+          </span>
+        </section> -->
+
+        <section>
+          <a href="http://localhost:8081/#11.12/52.3591/5.0156"><img src="../assets/panorama-vector-tiles.png" /></a>
+          <span class="caption">
+            Vector tiles!
+          </span>
+        </section>
+
+      </div>
+    </div>
+    <div id="caption-container">
+      <div id="caption">
+      </div>
+    </div>
+    <div id="logo-container">
+      <img id="logo" src="../assets/amsterdam.svg" />
+    </div>
+    <script src="js/head.load.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
