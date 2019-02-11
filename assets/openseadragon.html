@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.0/openseadragon.min.js"></script>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #iiif {
+        width: 100vw; height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="iiif">
+
+    </div>
+  </body>
+  <script>
+    var tileSource = "https://acc.images.data.amsterdam.nl/iiif/2/objectstore:beeldbank-010056916830.jpg/info.json"
+
+    OpenSeadragon({
+      id: 'iiif',
+      prefixUrl: 'http://openseadragon.github.io/openseadragon/images/',
+
+      preserveViewport: true,
+      visibilityRatio:    1,
+      minZoomLevel:       1,
+      defaultZoomLevel:   1,
+      sequenceMode:       true,
+      tileSources: [
+        tileSource
+      ]
+    })
+  </script>
+</html>

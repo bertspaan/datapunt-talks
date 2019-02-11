@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Datapunt-demo: Historische Kaarten & IIIF</title>
+    <meta name="author" content="Bert Spaan">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../assets/css/reveal.css">
+    <link rel="stylesheet" href="../assets/css/prism.css">
+    <link rel="stylesheet" href="../assets/css/theme.css" id="theme">
+    <link rel="stylesheet" href="../assets/css/style.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Historische Kaarten in City Data</h1>
+        </section>
+
+        <section data-background-video-loop="true"
+          data-background-size="contain" data-background-video="../assets/city-data-publieke-werken-loop.mp4"	>
+        </section>
+
+        <section>
+          Kaarten van de Dienst der Publieke Werken: gedetailleerde topografische kaarten, <strong>van 1909 tot en met 1985</strong>.
+        </section>
+
+        <section data-background-iframe="https://amsterdam.github.io/publieke-werken/viewer/28992.html?year=1909#13/52.3591/4.9088" data-background-interactive>
+        </section>
+
+        <section data-background-iframe="https://amsterdam.github.io/publieke-werken/viewer/28992.html?year=1943#14/52.3612/4.9571" data-background-interactive>
+        </section>
+
+        <section data-background-iframe="https://amsterdam.github.io/publieke-werken/viewer/28992.html?year=1985#14/52.3627/4.8827" data-background-interactive>
+        </section>
+
+        <section>
+          Tiles beschikbaar in EPSG:28992 en Web Mercator: <br />
+          <strong><code>https://{s}.data.amsterdam.nl/publieke-werken-1943-rd/{z}/{x}/{y}.png</code></strong>
+        </section>
+
+        <section data-background="../assets/buurtatlas-loman.jpg">
+          <h2>Binnenkort: meer kaarten!</h2>
+        </section>
+
+        <section>
+          <h2>IIIF Image Server</h2>
+          <h6>International Image Interoperability Framework</h6>
+        </section>
+
+        <section>
+          <img src="../assets/iiif-website.png" />
+        </section>
+
+        <section data-background="../assets/bouwdossier-SU10089302_00001.jpg">
+          <h3>
+            IIIF is geschikt voor het uniform beschikbaar maken van afbeeldingen (bijvoorbeeld bouwdossiers met bouwtekeningen)
+          </h3>
+        </section>
+
+        <section>
+          <img src="../assets/cantaloupe.png" />
+        </section>
+
+        <section>
+            <code>https://images.data.amsterdam.nl/iiif/2/{identifier}/
+              {region}/{size}/{rotation}/{quality}.{format}</code>
+        </section>
+
+        <section>
+          <img src="../assets/iiif-info-json.png" />
+        </section>
+
+        <section>
+          <img src="../assets/iiif-st-antoniesbreestraat.png" />
+        </section>
+
+        <section data-background-iframe="../assets/openseadragon.html" data-background-interactive>
+        </section>
+
+        <section>
+          <a href="https://beta.observablehq.com/@bertspaan/iiif-openseadragon?url=https://acc.images.data.amsterdam.nl/iiif/2/objectstore:beeldbank-KOKA00384000001.jpg">
+            <img src="../assets/observable-iiif.png" />
+          </a>
+        </section>
+
+      </div>
+    </div>
+    <div id="caption-container">
+      <div id="caption">
+      </div>
+    </div>
+    <div id="logo-container">
+      <img id="logo" src="../assets/amsterdam.svg" />
+    </div>
+    <script src="../assets/js/head.load.min.js"></script>
+    <script src="../assets/js/reveal.js"></script>
+    <script src="../assets/js/script.js"></script>
+  </body>
+</html>
