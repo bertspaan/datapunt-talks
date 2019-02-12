@@ -23,12 +23,14 @@
     </div>
   </body>
   <script>
-    var tileSource = "https://acc.images.data.amsterdam.nl/iiif/2/objectstore:beeldbank-010056916830.jpg/info.json"
+    var defaultTileSource = "https://acc.images.data.amsterdam.nl/iiif/2/objectstore:beeldbank-010056916830.jpg/info.json"
+
+    var url = new URL(window.location.href)
+    var tileSource = url.searchParams.get('url') || defaultTileSource
 
     OpenSeadragon({
       id: 'iiif',
       prefixUrl: 'http://openseadragon.github.io/openseadragon/images/',
-
       preserveViewport: true,
       visibilityRatio:    1,
       minZoomLevel:       1,

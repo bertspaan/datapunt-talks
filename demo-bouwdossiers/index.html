@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>IIIF Image Server</title>
+    <meta name="author" content="Bert Spaan">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../assets/css/reveal.css">
+    <link rel="stylesheet" href="../assets/css/prism.css">
+    <link rel="stylesheet" href="../assets/css/theme.css" id="theme">
+    <link rel="stylesheet" href="../assets/css/style.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h2>IIIF Image Server</h2>
+          <h6>International Image Interoperability Framework</h6>
+        </section>
+
+        <section data-background="../assets/bouwdossier-SU10089302_00001.jpg">
+          <h3>
+            IIIF is geschikt voor het uniform en behapbaar (voor browsers) beschikbaar maken van grote afbeeldingen (hoge resolutie, veel MB's)
+          </h3>
+        </section>
+
+        <section data-background-iframe="https://iiif.io/community/#participating-institutions" data-background-interactive>
+        </section>
+
+        <section>
+          <img src="../assets/iiif-website.png" />
+        </section>
+
+        <section>
+          <img src="../assets/cantaloupe.png" />
+        </section>
+
+        <!-- <section>
+            <code>https://images.data.amsterdam.nl/iiif/2/{identifier}/
+              {region}/{size}/{rotation}/{quality}.{format}</code>
+        </section> -->
+
+        <section>
+          <img src="../assets/iiif-st-antoniesbreestraat.png" />
+        </section>
+
+        <section>
+          <img src="../assets/iiif-info-json.png" />
+        </section>
+
+        <section>
+          <img src="https://acc.images.data.amsterdam.nl/iiif/2/objectstore:beeldbank-010056916830.jpg/full/800,/0/default.jpg" />
+          <div>Beelden verkleinen: "…/full/800,/0/default.jpg"</div>
+        </section>
+
+        <section>
+          <img src="https://acc.images.data.amsterdam.nl/iiif/2/objectstore:beeldbank-010056916830.jpg/full/800,/90/default.jpg" />
+          <div>Beelden draaien: "…/full/800,/90/default.jpg"</div>
+        </section>
+
+        <section>
+          <img src="https://acc.images.data.amsterdam.nl/iiif/2/objectstore:beeldbank-010056916830.jpg/600,600,1200,1200/800,800/0/default.jpg" />
+          <div>Beelden opknippen: "…/600,600,1200,1200/800,800/0/default.jpg"</div>
+        </section>
+
+        <section data-background-iframe="../assets/openseadragon.html?url=https://acc.images.data.amsterdam.nl/iiif/2/objectstore:beeldbank-010056916830.jpg/info.json" data-background-interactive>
+        </section>
+
+        <section data-background-iframe="../assets/openseadragon.html?url=https://acc.images.data.amsterdam.nl/iiif/2/objectstore:beeldbank-KOKA00384000001.jpg/info.json" data-background-interactive>
+        </section>
+
+        <section data-background-iframe="../assets/openseadragon.html?url=https://acc.images.data.amsterdam.nl/iiif/2/objectstore:SA00086155_00002.jpg/info.json" data-background-interactive>
+        </section>
+
+        <section data-background-iframe="../assets/openseadragon.html?url=https://acc.images.data.amsterdam.nl/iiif/2/objectstore:SA00086192_00001.jpg/info.json" data-background-interactive>
+        </section>
+
+        <section data-background-iframe="../assets/openseadragon.html?url=https://acc.images.data.amsterdam.nl/iiif/2/objectstore:nypl-panoramic-view-of-manhattan.jpg/info.json" data-background-interactive>
+        </section>
+
+        <section>
+          <a href="https://beta.observablehq.com/@bertspaan/iiif-openseadragon">
+            <img src="../assets/observable-iiif-2.png" />
+          </a>
+        </section>
+
+      </div>
+    </div>
+    <div id="caption-container">
+      <div id="caption">
+      </div>
+    </div>
+    <div id="logo-container">
+      <img id="logo" src="../assets/amsterdam.svg" />
+    </div>
+    <script src="../assets/js/head.load.min.js"></script>
+    <script src="../assets/js/reveal.js"></script>
+    <script src="../assets/js/script.js"></script>
+  </body>
+</html>
