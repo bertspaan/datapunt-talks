@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Demo-Dinsdag: Historische Kaarten & IIIF</title>
+    <meta name="author" content="Bert Spaan">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../assets/css/reveal.css">
+    <link rel="stylesheet" href="../assets/css/prism.css">
+    <link rel="stylesheet" href="../assets/css/theme.css" id="theme">
+    <link rel="stylesheet" href="../assets/css/style.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Historische Cartografie, Bouwdossiers, Datapunt & ’t Stadsarchief</h1>
+        </section>
+
+        <section>
+          <h2>Historische Kaarten in City Data</h2>
+        </section>
+
+        <section data-background-video-loop="true"
+          data-background-size="contain" data-background-video="../assets/city-data-publieke-werken-loop.mp4"	>
+        </section>
+
+        <section>
+          Kaarten van de Dienst der Publieke Werken: gedetailleerde topografische kaarten, <strong>van 1909 tot en met 1985</strong>.
+        </section>
+
+        <section data-background-video-loop="true"
+          data-background-size="cover" data-background-video="../assets/publieke-werken.mp4"	>
+        </section>
+
+        <section data-background-iframe="https://amsterdam.github.io/historical-maps/viewer/28992.html?layer=publieke-werken-1909-rd#13/52.3591/4.9088" data-background-interactive>
+        </section>
+
+        <section data-background-iframe="https://amsterdam.github.io/historical-maps/viewer/28992.html?layer=publieke-werken-1943-rd#14/52.3612/4.9571" data-background-interactive>
+        </section>
+
+        <section data-background-iframe="https://amsterdam.github.io/historical-maps/viewer/28992.html?layer=publieke-werken-1943-2500-rd#12/52.3555/4.8546" data-background-interactive>
+        </section>
+
+        <section data-background-iframe="https://amsterdam.github.io/historical-maps/viewer/28992.html?layer=publieke-werken-1985-rd#14/52.3627/4.8827" data-background-interactive>
+        </section>
+
+        <section data-background-iframe="https://amsterdam.github.io/explore-historical-maps#12/52.3725/4.9357" data-background-interactive>
+        </section>
+
+        <section>
+          <h2>Binnenkort: meer kaarten!</h2>
+        </section>
+
+        <section data-background="../assets/buurtatlas-loman.jpg">
+          <span class="caption">
+            Buurtatlas Loman
+          </span>
+        </section>
+
+        <section data-background="../assets/scheltema-1900-3750.jpg">
+          <span class="caption">
+            H.J. Scheltema - Hoofdbureau van Publieke Werken 1:3750 (1900)
+          </span>
+        </section>
+
+        <section data-background="../assets/publieke-werken-1964-10000.jpg">
+          <span class="caption">
+            Dienst der Publieke Werken 1:10000 (1965)
+          </span>
+        </section>
+
+        <section>
+          <h2>IIIF Image Server</h2>
+          <h6>International Image Interoperability Framework</h6>
+        </section>
+
+        <section data-background-iframe="https://iiif.io/" data-background-interactive>
+        </section>
+
+        <section data-background="../assets/bouwdossier-SU10089302_00001.jpg">
+          <h3>
+            IIIF is geschikt voor het uniform beschikbaar maken van afbeeldingen (bijvoorbeeld bouwdossiers met bouwtekeningen)
+          </h3>
+        </section>
+
+        <section data-background-iframe="../assets/openseadragon.html?url=http://localhost:8182/iiif/2/objectstore:SA00086154_00001.jpg/info.json" data-background-interactive>
+        </section>
+
+        <section data-background-iframe="../assets/openseadragon.html?url=http://localhost:8182/iiif/2/objectstore:SU10089296_00001.jpg/info.json" data-background-interactive>
+        </section>
+
+        <section data-background-iframe="../assets/openseadragon.html?url=http://localhost:8182/iiif/2/beeldbank:5221BT904962/info.json" data-background-interactive>
+        </section>
+
+        <section>
+          <img src="../assets/iiif-st-antoniesbreestraat.png" />
+        </section>
+
+        <section data-background-iframe="../assets/openseadragon.html?url=http://localhost:8182/iiif/2/beeldbank:B00000026214/info.json" data-background-interactive>
+        </section>
+
+        <section data-background-iframe="../assets/openseadragon.html?url=http://localhost:8182/iiif/2/beeldbank:010019000540/info.json" data-background-interactive>
+        </section>
+
+        <section data-background-iframe="../assets/openseadragon.html?url=https://www.davidrumsey.com/luna/servlet/iiif/RUMSEY~8~1~231321~5508809/info.json" data-background-interactive>
+        </section>
+
+        <section data-background-iframe="../assets/openseadragon.html?url=https://www.davidrumsey.com/luna/servlet/iiif/RUMSEY~8~1~305506~90076001/info.json" data-background-interactive>
+        </section>
+
+      </div>
+    </div>
+    <div id="caption-container">
+      <div id="caption">
+      </div>
+    </div>
+    <div id="logo-container">
+      <img id="logo" src="../assets/amsterdam.svg" />
+    </div>
+    <script src="../assets/js/head.load.min.js"></script>
+    <script src="../assets/js/reveal.js"></script>
+    <script src="../assets/js/script.js"></script>
+  </body>
+</html>
