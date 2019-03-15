@@ -2,8 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Datalab 21 maart: Presentatie Datablog</title>
-    <meta name="author" content="Bert Spaan">
+    <title>Datalab 21 maart: Datablog Amsterdam</title>
+    <link rel="icon" href="../assets/demo-datablog/favicon.ico" type="image/x-icon">
+    <meta name="author" content="Bert Spaan & Bas Broekhuizen">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -11,14 +12,107 @@
     <link rel="stylesheet" href="../assets/css/prism.css">
     <link rel="stylesheet" href="../assets/css/theme.css" id="theme">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+      .reveal .screenshot {
+        border: 2px solid #333;
+        margin: 30px 0;
+      }
+      .reveal .dropshadow {
+        border: 2px solid #333;
+        margin: 30px 0;
+        box-shadow: 10px 10px 19px -4px rgba(168,165,168,1);
+      }
+      .reveal .floating-box {
+        position: absolute;
+        top: 60%;
+        width: 70%;
+        left: 30%;
+        border: 2px solid #333;
+        background: #fff;
+        padding: 12px;
+        color: #f00;
+      }
+      .reveal .two-panes {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 45px;
+      }
+      .reveal .two-panes div {
+        width: 50%;
+      }
+      .reveal .shoutout {
+        color: #f00;
+        font-size: 120px;
+        font-weight: bold;
+      }
+    </style>
   </head>
   <body>
     <div class="reveal">
       <div class="slides">
 
         <section>
-          <h1>Presentatie Datablog</h1>
+          <h1>Datablog Amsterdam</h1>
         </section>
+
+        <section>
+          <h2>Wat is data.amsterdam.nl?</h2>
+          <img class="screenshot dropshadow" src="../assets/demo-datablog/portaal-voorpagina.png" />
+          <div class="floating-box dropshadow fragment fade-up">data.amsterdam.nl is dé toegankelijke en centrale ingang voor iedereen die op zoek is naar objectieve, betrouwbare en actuele data, informatie en kennis over de stad.</div>
+        </section>
+
+        <section>
+          <h2>Wat is data.amsterdam.nl?</h2>
+          <div class="two-panes">
+            <div>
+              <h6>Data</h6>
+              <img src="../assets/demo-datablog/portaal-deel-data.png" />
+            </div>
+            <div>
+              <h6>Componenten</h6>
+              <img src="../assets/demo-datablog/portaal-deel-componenten.png" />
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Data: sets</h2>
+          <img class="screenshot dropshadow" src="../assets/demo-datablog/portaal-datasets.png" />
+        </section>
+
+        <section>
+          <h2>Data: api's</h2>
+          <img class="screenshot dropshadow" src="../assets/demo-datablog/portaal-apis.png" />
+        </section>
+
+        <section>
+          <h2>Componenten: kaart</h2>
+          <img class="screenshot dropshadow" src="../assets/demo-datablog/portaal-kaart.png" />
+        </section>
+
+        <section>
+          <h2>Componenten: panoramaviewer</h2>
+          <img class="screenshot dropshadow" src="../assets/demo-datablog/portaal-pano.png" />
+        </section>
+
+        <section>
+          <h2>Componenten: interactieve tabel</h2>
+          <img class="screenshot dropshadow" src="../assets/demo-datablog/portaal-tabel.png" />
+        </section>
+
+        <section>
+          <h2>Componenten: grafieken</h2>
+          <img class="screenshot dropshadow" src="../assets/demo-datablog/portaal-grafieken.png" />
+        </section>
+
+        <section>
+            <h2>Wat kun je er zelf mee?</h2>
+            <p class="shoutout fragment fade-in">Datablog!</p>
+        </section>
+
+        <section data-background-iframe="https://amsterdam.github.io/datablog/" data-background-interactive>
+        </section>
+
 
         <!-- Voor voorbeelden, zie https://github.com/bertspaan/datapunt-talks/blob/master/demo-bouwdossiers/index.html -->
         <!-- Meetup: https://www.meetup.com/DataLab-Amsterdam/events/259323157/ -->
@@ -56,7 +150,9 @@
 
         <!-- Toevoegen: mooie laatste slide met e-mail + Twitter-links -->
         <section>
-          Vragen, opmerkingen, ideeën: mail of tweet Bas & Bert
+          <h4>Vragen, opmerkingen, ideeën?</h4>
+          <p>Bas: <a href="mailto:b.broekhuizen@amsterdam.nl">b.broekhuizen@amsterdam.nl</a>, <a href="https://twitter.com/basbroekhuizen">@basbroekhuizen</a></p>
+          <p>Bert: <a href="mailto:b.spaan@amsterdam.nl">b.spaan@amsterdam.nl</a>, <a href="https://twitter.com/bertspaan">@bertspaan</a></p>
         </section>
 
       </div>
