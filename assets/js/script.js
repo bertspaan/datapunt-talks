@@ -9,7 +9,7 @@ Reveal.initialize({
 
   dependencies: [
     {
-      src: 'js/prism.js',
+      src: '/assets/js/prism.js',
       async: true,
       callback: function () {
         // hljs.initHighlightingOnLoad()
