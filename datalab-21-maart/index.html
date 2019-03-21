@@ -106,50 +106,156 @@
         </section>
 
         <section>
-            <h2>Wat kun je er zelf mee?</h2>
-            <p class="shoutout fragment fade-in">Datablog!</p>
+          <h2>Wat kun je er zelf mee?</h2>
+          <p class="shoutout fragment fade-in">Datablog!</p>
+        </section>
+
+        <section>
+          <h3>Datablog:</h3>
+          <ol>
+            <li>Codevoorbeelden</li>
+            <li>Documentatie en uitleg</li>
+            <li>Experimenten met datavisualisatie</li>
+            <li>Aankondigingen nieuwe API's, tools, GitHub-projecten, etc.</li>
+          </ol>
+        </section>
+
+        <section>
+          <div>
+            <strong>Via data.amsterdam.nl wordt alle nuttige en interessante data over Amsterdam ontsloten.</strong>
+          Het moet eenvoudiger, leuker en toegankelijker worden om met onze data en tools te werken.
+          </div>
         </section>
 
         <section data-background-iframe="https://amsterdam.github.io/datablog/" data-background-interactive>
         </section>
 
-
-        <!-- Voor voorbeelden, zie https://github.com/bertspaan/datapunt-talks/blob/master/demo-bouwdossiers/index.html -->
-        <!-- Meetup: https://www.meetup.com/DataLab-Amsterdam/events/259323157/ -->
-
-        <!--
-        Datablog:
-          - codevoorbeelden
-          - experimenten met datavisualisatie
-          - aankondigingen nieuwe API's, tools, GitHub-projecten, etc.
-        -->
-
-        <!--
-        Historische kaartlagen
-          - herkomst, georefereren
-          - Hoe gebruik je ze met Leaflet & QGIS?
-          - Hoe leg je ze met Leaflet over elkaar heen
-          - Hoe voegen we meer kaartlagen toe?
-        -->
-
-        <!--
-        Panorama-API
-          - Hoe werkt de API?
-          - Heel veel beelden van de stad!
-          - Beeldherkenning etc.
-          - Visualisatie van routes met QGIS
-          - Animatie
-        -->
-
-        <!--
-        Binnenkort:
-          - IIIF,
-          - Amsterdam 3D
-          (Ik kan van beide evt. al een slide/plaatje laten zien)
-        -->
-
-        <!-- Toevoegen: mooie laatste slide met e-mail + Twitter-links -->
         <section>
+          <h2>Verhaal 1: Historische kaartlagen op data.amsterdam.nl</h2>
+        </section>
+
+        <section data-background-video-loop="true"
+          data-background-size="contain" data-background-video="../assets/city-data-publieke-werken-loop.mp4"	>
+        </section>
+
+        <section>
+          Kaarten van de Dienst der Publieke Werken: gedetailleerde topografische kaarten, <strong>van 1909 tot en met 1985</strong>.
+        </section>
+
+        <section data-background-video-loop="true"
+          data-background-size="cover" data-background-video="../assets/publieke-werken.mp4"	>
+        </section>
+
+        <section data-background-iframe="https://amsterdam.github.io/historical-maps/viewer/28992.html?layer=publieke-werken-1909-rd#13/52.3591/4.9088" data-background-interactive>
+        </section>
+
+        <section data-background-iframe="https://amsterdam.github.io/historical-maps/viewer/28992.html?layer=publieke-werken-1943-rd#14/52.3612/4.9571" data-background-interactive>
+        </section>
+
+        <section data-background-iframe="https://amsterdam.github.io/historical-maps/viewer/28992.html?layer=publieke-werken-1943-2500-rd#12/52.3555/4.8546" data-background-interactive>
+        </section>
+
+        <section data-background-iframe="https://amsterdam.github.io/historical-maps/viewer/28992.html?layer=publieke-werken-1985-rd#14/52.3627/4.8827" data-background-interactive>
+        </section>
+
+        <section>
+          <div>Met bv. Leaflet kunnen we deze kaartlagen weergeven en gebruiken:</div>
+          <pre><code data-trim data-noescape class="language-js">var map = new L.Map('map', {
+  crs: RD
+})
+
+var id = 'publieke-werken-1943-rd'
+var tileUrl = 'https://{s}.data.amsterdam.nl/' + id + '/{z}/{x}/{y}.png'
+
+var tileLayer = L.tileLayer(tileUrl, {
+  maxZoom: 16,
+  minZoom: 8,
+  tms: true,
+  subdomains: ['t1', 't2', 't3', 't4']
+}).addTo(map)
+
+map.setView([52.4158, 4.9768], 10)</code></pre>
+        </section>
+
+        <section data-background-iframe="https://amsterdam.github.io/explore-historical-maps#12/52.3725/4.9357" data-background-interactive>
+        </section>
+
+        <section data-background="../assets/buurtatlas-loman.jpg">
+          <h2>Binnenkort: meer kaarten!</h2>
+        </section>
+
+        <section>
+          <h2>Verhaal 2: 360-gradenfoto’s van de hele stad</h2>
+        </section>
+
+        <section>
+          <img class="" src="../assets/panorama-ransdorp.jpg" />
+        </section>
+
+        <section data-background="../assets/panorama-zijkanaal-h.jpg">
+        </section>
+
+        <section>
+          <img class="" src="../assets/panorama-api.jpg" />
+        </section>
+
+        <section>
+          <img class="" src="../assets/panorama-qgis.png" />
+        </section>
+
+        <section>
+            <strong>Sinds 2016: 5 miljoen foto’s, meer dan 14,000 kilometer!</strong>
+            Wat kunnen we nog meer doen met de panoramafoto's?
+        </section>
+
+        <section>
+          <img class="" src="../assets/mapillary.jpg" />
+        </section>
+
+        <section data-background="../assets/9-eyes.jpg">
+        </section>
+
+        <section>
+          <img class="" src="../assets/geoguessr.jpg" />
+        </section>
+
+        <section>
+          <strong>Blogpost</strong>: een Amsterdamse versie van GeoGuessr, met open source-tools en open data
+        </section>
+
+        <section>
+          Hoe pak ik een willekeurige panoramafoto, die bovendien in de gemeente Amsterdam ligt?
+        </section>
+
+        <section>
+          <img class="" src="../assets/sequences-amsterdam.jpg" />
+        </section>
+
+        <section data-background-iframe="https://amsterdam.github.io/panorama-visualization/" data-background-interactive>
+        </section>
+
+        <section>
+          <img class="" src="../assets/sequences-qgis.jpg" />
+        </section>
+
+        <section>
+          <img class="" src="../assets/sequences-triangulation.svg" />
+        </section>
+
+        <section>
+          <a href="https://bertspaan.nl/waar-ben-ik"><img src="../assets/waar-ben-ik.jpg" /></a>
+          <div><a href="https://bertspaan.nl/waar-ben-ik">bertspaan.nl/waar-ben-ik</a></div>
+        </section>
+
+        <section>
+          (Ik zoek nog iemand die me wil helpen om van <strong>Waar ben ik?</strong> een multiplayer-spel te maken!)
+        </section>
+
+        <section data-background-iframe="https://amsterdam.github.io/datablog/" data-background-interactive>
+        </section>
+
+        <section>
+          <h2><a href="https://amsterdam.github.io/datablog">amsterdam.github.io/datablog</a></h2>
           <h4>Vragen, opmerkingen, ideeën?</h4>
           <p>Bas: <a href="mailto:b.broekhuizen@amsterdam.nl">b.broekhuizen@amsterdam.nl</a>, <a href="https://twitter.com/basbroekhuizen">@basbroekhuizen</a></p>
           <p>Bert: <a href="mailto:b.spaan@amsterdam.nl">b.spaan@amsterdam.nl</a>, <a href="https://twitter.com/bertspaan">@bertspaan</a></p>
