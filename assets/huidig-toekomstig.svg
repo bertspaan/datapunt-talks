@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 771 687" style="enable-background:new 0 0 771 687;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#231F20;}
+	.st1{font-family:'Avenir-Heavy';}
+	.st2{font-size:20.39px;}
+	.st3{font-family:'HelveticaNeue-Medium';}
+	.st4{font-size:15.29px;}
+	.st5{enable-background:new    ;}
+	.st6{font-family:'HelveticaNeue-Thin';}
+	.st7{fill:none;stroke:#231F20;stroke-miterlimit:10;}
+	.st8{fill:#FFFFFF;fill-opacity:0.8;stroke:#231F20;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+	.st9{fill:none;stroke:#231F20;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st10{fill:none;stroke:#231F20;stroke-linecap:round;stroke-linejoin:round;}
+	.st11{fill:none;}
+	.st12{font-size:12px;}
+	.st13{fill:none;stroke:#C7C8CA;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;}
+	.st14{fill:none;stroke:#C7C8CA;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:11.82,11.82;}
+	.st15{fill:#BAD532;}
+	.st16{font-family:'Avenir-Book';}
+	.st17{font-size:18.237px;}
+	.st18{fill:#FFCF01;}
+	.st19{font-family:'Avenir-Black';}
+	.st20{font-size:13px;}
+</style>
+<g id="Huidige_situatie">
+	<g>
+		<text transform="matrix(1 0 0 1 36.5521 41.9717)" class="st0 st1 st2">Huidige situatie</text>
+		<text transform="matrix(1 0 0 1 67.4414 645.0284)" class="st0 st3 st4">Object Store</text>
+		<text transform="matrix(1 0 0 1 50.5846 109.6951)" class="st5"><tspan x="0" y="0" class="st0 st3 st4">Django REST API</tspan><tspan x="-23.9" y="18.3" class="st0 st6 st4">met PostgreSQL-database</tspan></text>
+		<g>
+			<path class="st7" d="M112.4,614.2l-0.1-185.9c-0.6-12.1-1.2-16.5-6.8-23.5c-7.3-8.9-14.1-12.8-29.4-11.9
+				c-13.6,0.8-23.9,4.6-21.4,19.9c1.6,9.6,18,18.4,45.3,12c7.7-1.8,16.4-8.6,20.6-13.2c10.4-11.4,32.5-20.2,46.5-15.8
+				c9.2,2.8,13.7,7.7,11.9,15.7c-1.6,7.1-10.1,12.1-27,12.5c-20.4,0.5-28.7-23.3-32-29.1c-5-8.8-6.3-25.1-16.8-32.2
+				c-7.9-5.4-15.1-9.5-22.6-10.2c-7.8-0.8-18.7,0.8-17.8,9.4c0.7,6.9,2.6,14.8,13.5,18.3c14.1,4.4,33.2,5.7,39,5.5
+				c27.4-0.8,46-12.8,49.2-23.5c5.6-18.7-14.1-18.3-32.8-12c-14.6,4.9-27.6,19-42.4,23c-6.5,1.8-22,8.2-37.7-4
+				c-9.8-7.5-9.3-17.7-2.6-25.3c12.1-13.8,42.7,7.6,54,4c4.1-1.3,9.3-4.5,9.3-15.1v-179"/>
+			<polygon class="st0" points="115.3,160 112.4,150.6 109.5,160 			"/>
+			<rect x="28" y="327.2" class="st8" width="167.9" height="110.3"/>
+		</g>
+		<line class="st9" x1="53.6" y1="51.7" x2="170.2" y2="51.7"/>
+		<text transform="matrix(1 0 0 1 66.7306 368.9536)" class="st5"><tspan x="0" y="0" class="st0 st3 st4">ETL, Django,</tspan><tspan x="-21.8" y="18.3" class="st0 st3 st4">datamodel, viewer,</tspan><tspan x="-18.7" y="36.7" class="st0 st3 st4">API-documentatie</tspan></text>
+	</g>
+</g>
+<g id="Toekomstige_situatie">
+	<g>
+		<g>
+			<path class="st10" d="M411,355.6c20.4-11.3,61.8-29.1,72.5-60.6c9-26.3-6.2-67.3-15.8-86.7"/>
+			<g>
+				<polygon class="st0" points="471.2,208.7 463.5,200.5 466,211.4 				"/>
+			</g>
+		</g>
+	</g>
+	<title>panorama-architecture</title>
+	<g>
+		<text transform="matrix(1 0 0 1 239.2968 41.9719)" class="st0 st1 st2">Scheiding Data &amp; Applicatie</text>
+		<text transform="matrix(1 0 0 1 325.5081 645.0284)" class="st0 st3 st4">Object Store</text>
+		<text transform="matrix(1 0 0 1 325.5081 387.9542)" class="st0 st3 st4">Object Store</text>
+		<text transform="matrix(1 0 0 1 308.6514 109.6951)" class="st5"><tspan x="0" y="0" class="st0 st3 st4">Django REST API</tspan><tspan x="-23.9" y="18.3" class="st0 st6 st4">met PostgreSQL-database</tspan></text>
+		<g>
+			<path class="st7" d="M370.5,614.2V422.4"/>
+			<polygon class="st0" points="373.4,158.4 370.5,149 367.6,158.4 			"/>
+			<polygon class="st0" points="373.4,427.1 370.5,417.7 367.6,427.1 			"/>
+			<path class="st7" d="M370.5,342.4V153.7"/>
+			<rect x="324" y="488.1" class="st8" width="92" height="60.4"/>
+			<rect x="324" y="217.9" class="st8" width="92" height="60.4"/>
+		</g>
+		<line class="st9" x1="315.1" y1="51.7" x2="431.7" y2="51.7"/>
+		<rect x="328.2" y="228.1" class="st11" width="84.6" height="40"/>
+		<text transform="matrix(1 0 0 1 349.1379 236.6321)"><tspan x="0" y="0" class="st0 st3 st12">Django,</tspan><tspan x="-19" y="14.4" class="st0 st3 st12">API-documen</tspan><tspan x="57" y="14.4" class="st0 st3 st12">-</tspan><tspan x="9.2" y="28.8" class="st0 st3 st12">tatie</tspan></text>
+		<text transform="matrix(1 0 0 1 358.0339 515.7308)" class="st5"><tspan x="0" y="0" class="st0 st3 st12">ETL,</tspan><tspan x="-17.1" y="14.4" class="st0 st3 st12">datamodel</tspan></text>
+	</g>
+	<g>
+		<g>
+			<line class="st13" x1="235.4" y1="130.6" x2="235.4" y2="136.6"/>
+			<line class="st14" x1="235.4" y1="148.5" x2="235.4" y2="544.4"/>
+			<line class="st13" x1="235.4" y1="550.4" x2="235.4" y2="556.4"/>
+		</g>
+	</g>
+	<g>
+		<path class="st15" d="M710.6,576.3l-211.2,22.2c-9.2,1-17.4-5.7-18.4-14.9l-20.8-198.3c-1-9.2,5.7-17.4,14.9-18.4l211.2-22.2
+			c9.2-1,17.4,5.7,18.4,14.9L725.4,558C726.4,567.1,719.7,575.4,710.6,576.3z"/>
+		
+			<rect x="479.1" y="364.4" transform="matrix(0.9945 -0.1045 0.1045 0.9945 -46.5628 64.7782)" class="st11" width="231.4" height="224.4"/>
+		<text transform="matrix(0.985 -0.1035 0.1045 0.9945 469.4013 390.8111)"><tspan x="0" y="0" class="st0 st16 st17">Scheiding van data en appli</tspan><tspan x="226" y="0" class="st0 st16 st17">-</tspan><tspan x="0" y="21.9" class="st0 st16 st17">catie! Losse databestanden </tspan><tspan x="0" y="43.8" class="st0 st16 st17">op Object Store, deze </tspan><tspan x="0" y="65.7" class="st0 st16 st17">vormen de basis voor alle </tspan><tspan x="0" y="87.5" class="st0 st16 st17">Datapunt-applicaties! Ook </tspan><tspan x="0" y="109.4" class="st0 st16 st17">kunnen we deze data aan</tspan><tspan x="207.5" y="109.4" class="st0 st16 st17">-</tspan><tspan x="0" y="131.3" class="st0 st16 st17">bieden in de da</tspan><tspan x="128.7" y="131.3" class="st0 st16 st17">ta</tspan><tspan x="143.5" y="131.3" class="st0 st16 st17">catalogus </tspan><tspan x="0" y="153.2" class="st0 st16 st17">in verschillende formaten: </tspan><tspan x="0" y="175.1" class="st0 st16 st17">JSON, CSV, RDF, Shape</tspan><tspan x="198.4" y="175.1" class="st0 st16 st17">-</tspan><tspan x="0" y="197" class="st0 st16 st17">file</tspan><tspan x="24.3" y="197" class="st0 st16 st17">s</tspan><tspan x="31.3" y="197" class="st0 st16 st17">, GeoJSON, etc.!</tspan></text>
+	</g>
+	<g>
+		<path class="st18" d="M742.2,74.3l-102.1,5c-6.6,0.3-12.2-4.8-12.5-11.3l-1.4-29c-0.3-6.6,4.8-12.2,11.3-12.5l102.1-5
+			c6.6-0.3,12.2,4.8,12.5,11.3l1.4,29C753.9,68.3,748.8,73.9,742.2,74.3z"/>
+		
+			<rect x="632.2" y="29.9" transform="matrix(0.9988 -4.873712e-02 4.873712e-02 0.9988 -2.3255 33.7782)" class="st11" width="118.7" height="69.3"/>
+		<text transform="matrix(0.9893 -4.827404e-02 4.874000e-02 0.9988 651.5923 41.6117)"><tspan x="0" y="0" class="st0 st19 st20">Eenvoudiger </tspan><tspan x="-17.6" y="15.6" class="st0 st19 st20">nieuwe applicaties </tspan><tspan x="16" y="31.2" class="st0 st19 st20">maken!</tspan></text>
+	</g>
+	<g>
+		
+			<rect x="447.4" y="219.4" transform="matrix(0.9483 -0.3173 0.3173 0.9483 -51.6883 164.8849)" class="st8" width="66" height="43.4"/>
+		
+			<rect x="450.7" y="229.9" transform="matrix(0.9483 -0.3173 0.3173 0.9483 -52.4154 165.0161)" class="st11" width="59.3" height="27"/>
+		<text transform="matrix(0.9483 -0.3173 0.3173 0.9483 453.7186 247.1544)"><tspan x="0" y="0" class="st0 st3 st12">Datavisu</tspan><tspan x="48.2" y="0" class="st0 st3 st12">-</tspan><tspan x="3.9" y="14.4" class="st0 st3 st12">alisaties</tspan></text>
+	</g>
+	<g>
+		<g>
+			<path class="st10" d="M452,332.1c26.7-16.6,49.7-23.7,72.7-66.4c6.2-11.5,10.9-37.8-2-61.4c-8.8-16.2-11.6-12.1-19.2-29.8
+				c-1.4-3.2-4.8-11.8-5.5-30.5c-0.5-13.2,1.8-31.1,9.7-65.1"/>
+			<g>
+				<polygon class="st0" points="510.2,81.5 509.8,70.2 504.5,80.2 				"/>
+			</g>
+		</g>
+	</g>
+	<g>
+		<g>
+			<path class="st7" d="M494,305.3c35.4-31.3,53.2-13.1,80.2-40.1c11.1-11.1,11-35.2,13.9-63.4"/>
+			<g>
+				<polygon class="st0" points="590.8,204.1 589,193 585,203.5 				"/>
+			</g>
+		</g>
+	</g>
+	<g>
+		
+			<rect x="481.5" y="76.7" transform="matrix(0.1343 -0.9909 0.9909 0.1343 326.9082 593.5845)" class="st8" width="43.4" height="66"/>
+		
+			<rect x="496.4" y="76.9" transform="matrix(0.1343 -0.9909 0.9909 0.1343 325.3084 593.5493)" class="st11" width="11.9" height="67.4"/>
+		<text transform="matrix(0.9909 0.1343 -0.1343 0.9909 476.9722 109.7585)" class="st0 st3 st12">Datablog</text>
+	</g>
+	<g>
+		<g>
+			<path class="st10" d="M530.1,226c-6.6-34.8-4.5-47.6,4.9-67.6c17.7-37.5,35.7-72.7,51.9-137.1"/>
+			<g>
+				<polygon class="st0" points="589.1,23.9 589,12.7 583.5,22.4 				"/>
+			</g>
+		</g>
+	</g>
+	<g>
+		<g>
+			<path class="st10" d="M452,332.1c56-30.4,140.6-16.9,170-53.1c8.7-10.7,22.5-48.5,10-82.3c-5.1-13.9-17.8-43.4-33.6-88.1"/>
+			<g>
+				<polygon class="st0" points="601.9,109.4 595.5,100.2 596.4,111.3 				"/>
+			</g>
+		</g>
+	</g>
+	<g>
+		<g>
+			<path class="st10" d="M561.1,305.4c84.8-17,84.6,2.6,108.9-17.7c10.1-8.4,16.2-28.5,27.5-83.3"/>
+			<g>
+				<polygon class="st0" points="699.9,206.9 699.3,195.7 694.2,205.7 				"/>
+			</g>
+		</g>
+	</g>
+	<g>
+		
+			<rect x="557.7" y="18.7" transform="matrix(0.2132 -0.977 0.977 0.2132 405.2989 606.704)" class="st8" width="43.4" height="66"/>
+		
+			<rect x="564.9" y="23.2" transform="matrix(0.2132 -0.977 0.977 0.2132 402.6666 607.048)" class="st11" width="26.6" height="60.6"/>
+		<text transform="matrix(0.977 0.2132 -0.2132 0.977 558.8909 44.4555)"><tspan x="0" y="0" class="st0 st3 st12">Elastic</tspan><tspan x="36.9" y="0" class="st0 st3 st12">-</tspan><tspan x="2.1" y="14.4" class="st0 st3 st12">search</tspan></text>
+	</g>
+	<g>
+		
+			<rect x="575.7" y="119.2" transform="matrix(0.9709 -0.2394 0.2394 0.9709 -16.0363 149.7955)" class="st8" width="66" height="43.4"/>
+		
+			<rect x="574.6" y="136.1" transform="matrix(0.9709 -0.2394 0.2394 0.9709 -16.3209 149.7252)" class="st11" width="67.4" height="11.9"/>
+		<text transform="matrix(0.9709 -0.2394 0.2394 0.9709 584.4662 150.615)" class="st0 st3 st12">GraphQL</text>
+	</g>
+	<g>
+		
+			<rect x="564.7" y="198.7" transform="matrix(6.898750e-02 -0.9976 0.9976 6.898750e-02 314.8164 800.6719)" class="st8" width="43.4" height="66"/>
+		
+			<rect x="572.2" y="203.3" transform="matrix(6.898724e-02 -0.9976 0.9976 6.898724e-02 312.1024 801.6586)" class="st11" width="26.6" height="60.6"/>
+		<text transform="matrix(0.9976 6.899000e-02 -6.899000e-02 0.9976 556.3856 226.8873)"><tspan x="0" y="0" class="st0 st3 st12">Codevoor</tspan><tspan x="54.5" y="0" class="st0 st3 st12">-</tspan><tspan x="7.3" y="14.4" class="st0 st3 st12">beelden</tspan></text>
+	</g>
+	<g>
+		<g>
+			<path class="st10" d="M636.3,237.7c6.1-52.3,30.5-37.9,47.3-51.8c17.8-14.8,7.5-42.5,2.2-79.1"/>
+			<g>
+				<polygon class="st0" points="689.1,108.3 684.7,98 683.3,109.1 				"/>
+			</g>
+		</g>
+	</g>
+	<g>
+		
+			<rect x="657.2" y="117.6" transform="matrix(0.9938 -0.1113 0.1113 0.9938 -11.2203 77.7154)" class="st8" width="66" height="43.4"/>
+		
+			<rect x="660.4" y="125.8" transform="matrix(0.9938 -0.1113 0.1113 0.9938 -11.3432 77.658)" class="st11" width="58.5" height="29.1"/>
+		<text transform="matrix(0.9938 -0.1113 0.1113 0.9938 671.8702 136.3052)"><tspan x="0" y="0" class="st0 st3 st12">Kaart</tspan><tspan x="29.8" y="0" class="st0 st3 st12">-</tspan><tspan x="-0.8" y="14.4" class="st0 st3 st12">viewer</tspan></text>
+	</g>
+	<g>
+		
+			<rect x="668.6" y="204.7" transform="matrix(0.1903 -0.9817 0.9817 0.1903 325.5561 870.0513)" class="st8" width="43.4" height="66"/>
+		
+			<rect x="676.1" y="211.4" transform="matrix(0.1903 -0.9817 0.9817 0.1903 324.0175 869.8857)" class="st11" width="26.5" height="54.3"/>
+		<text transform="matrix(0.9817 0.1903 -0.1903 0.9817 674.9289 230.9455)"><tspan x="0" y="0" class="st0 st3 st12">Triple </tspan><tspan x="0.7" y="14.4" class="st0 st3 st12">Store</tspan></text>
+	</g>
+</g>
+</svg>

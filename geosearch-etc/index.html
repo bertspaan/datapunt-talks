@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Datalab 21 maart: Datablog Amsterdam</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../assets/css/reveal.css">
+    <link rel="stylesheet" href="../assets/css/prism.css">
+    <link rel="stylesheet" href="../assets/css/theme.css" id="theme">
+    <link rel="stylesheet" href="../assets/css/style.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h1>Uitgangspunt: één zoek-API voor data in de stad</h1>
+          <img style="width: 800px;" src="../assets/citysdk-revisited.svg" />
+        </section>
+
+        <section>
+          <h2>Momenteel gebruiken we verschillende API’s voor de volgende zoekvragen:</h2>
+          <ul>
+            <li>Geef alle adressen in dit pand;</li>
+            <li>Geef alle panoramafoto's in de buurt van deze panoramafoto</li>
+            <li>Geef alle meetbouten in de buurt van deze coördinaat <i>(dit noemen we geosearch)</i></li>
+          </ul>
+        </section>
+
+        <section>
+          <img src="../assets/huidig-toekomstig.svg" />
+        </section>
+
+        <section>
+          <ul>
+            <li><strong>ETL</strong>: datamodel in bv. JSON Schema, alle velden beschrijven en documenteren;</li>
+            <li><strong>Data</strong>: gebruik deze Datapunt-data + schema's als beginpunt;</li>
+            <li><strong>API’s, documentatie, kaartlagen</strong>: probeer deze zoveel mogelijk automatisch te genereren.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Hoe beginnen we!?</h3>
+          <ol>
+            <li>Kies een paar datasets, bijvoorbeeld:
+              <ul>
+                <li>Panoramafoto’s</li>
+                <li>Enkele kleine datasets uit various-small-datasets.</li>
+              </ul>
+            </li>
+            <li>Modeleer en beschrijf deze, sluit aan bij GOD-methodiek;</li>
+            <li>Gebruik GOB om GraphQL- en REST API-endpoints te genereren;</li>
+            <li>Ontwerp generieke geofunctiesdie o.a. in GraphQL kunnen worden gebruikt:
+                <ul>
+                  <li>Geef alle data in de buurt van locatie</li>
+                  <li>Etc.</li>
+                </ul>
+            </li>
+          </ol>
+        </section>
+
+      </div>
+    </div>
+    <div id="caption-container">
+      <div id="caption">
+      </div>
+    </div>
+    <div id="logo-container">
+      <img id="logo" src="../assets/amsterdam.svg" />
+    </div>
+    <script src="../assets/js/head.load.min.js"></script>
+    <script src="../assets/js/reveal.js"></script>
+    <script src="../assets/js/script.js"></script>
+  </body>
+</html>
